@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarvinJWendt/npm-prettier-setup.git"
+    "url": "git+https://github.com/MarvinJWendt/prettier-setup.git"
   },
   "keywords": [
     "prettier",
@@ -22,9 +22,9 @@
   "author": "MarvinJWendt",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MarvinJWendt/npm-prettier-setup/issues"
+    "url": "https://github.com/MarvinJWendt/prettier-setup/issues"
   },
-  "homepage": "https://github.com/MarvinJWendt/npm-prettier-setup#readme",
+  "homepage": "https://github.com/MarvinJWendt/prettier-setup#readme",
   "devDependencies": {
     "prettier": "^1.15.2"
   },
