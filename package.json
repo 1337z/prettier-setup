@@ -1,8 +1,12 @@
 {
-  "name": "npm-prettier-setup",
+  "name": "prettier-setup",
   "version": "1.0.0",
   "description": "NPM CLI module to setup prettier with ESLint and TSLint.",
   "main": "index.js",
+  "bin": {
+    "prettier-setup": "./bin/cli.js"
+  },
+  "preferGlobal": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +24,11 @@
   "bugs": {
     "url": "https://github.com/MarvinJWendt/npm-prettier-setup/issues"
   },
-  "homepage": "https://github.com/MarvinJWendt/npm-prettier-setup#readme"
+  "homepage": "https://github.com/MarvinJWendt/npm-prettier-setup#readme",
+  "devDependencies": {
+    "prettier": "^1.15.2"
+  },
+  "dependencies": {
+    "jsonfile": "^5.0.0"
+  }
 }
