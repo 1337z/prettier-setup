@@ -51,10 +51,10 @@ exports.setup = args => {
 
 }
 
-function copyTemplateFiles() {
+function copyTemplateFiles(typescript = false) {
   copyTemplate('.eslintrc')
   copyTemplate('.prettierrc')
-  copyTemplate('tslint.json')
+  if (typescript) copyTemplate('tslint.json')
 }
 
 function copyTemplate(filename) {
