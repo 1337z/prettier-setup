@@ -1,0 +1,24 @@
+{
+  "name": "npm-prettier-setup",
+  "version": "1.0.0",
+  "description": "NPM CLI module to setup prettier with ESLint and TSLint.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarvinJWendt/npm-prettier-setup.git"
+  },
+  "keywords": [
+    "prettier",
+    "setup",
+    "linting"
+  ],
+  "author": "MarvinJWendt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarvinJWendt/npm-prettier-setup/issues"
+  },
+  "homepage": "https://github.com/MarvinJWendt/npm-prettier-setup#readme"
+}
