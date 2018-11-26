@@ -15,7 +15,7 @@ The setup will now install Prettier with ESLint support.
 
 The setup will automatically create NPM scripts for you. You can now use:
 
-`npm run format` This will format every supported file.
+`npm run format` This will format every supported file.  
 `npm run formatjs` This will only format *.js files.
 
 ## Usage (JavaScript & TypeScript)
