@@ -1,6 +1,6 @@
 const exec = require('child_process').exec
 const jsonfile = require('jsonfile')
-var fs = require('fs');
+var fs = require('fs')
 
 const installJS = 'npm i -D prettier eslint eslint-plugin-prettier'
 const installTS = 'npm i -D prettier eslint eslint-plugin-prettier tslint tslint-plugin-prettier'
@@ -30,7 +30,6 @@ exports.setup = args => {
     })
 
     copyTemplateFiles()
-
   } else {
     console.log('Setup will install prettier and javascript dependencies.')
     exec(installJS, err => {
@@ -46,9 +45,7 @@ exports.setup = args => {
     })
 
     copyTemplateFiles()
-
   }
-
 }
 
 function copyTemplateFiles(typescript = false) {
@@ -58,11 +55,10 @@ function copyTemplateFiles(typescript = false) {
 }
 
 function copyTemplate(filename) {
-  const path = __dirname + "/template/" + filename
+  const path = __dirname + '/template/' + filename
 
-  fs.copyFile(path, './' + filename, (err) => {
-    if (err) throw err;
-
+  fs.copyFile(path, './' + filename, err => {
+    if (err) throw err
   })
 }
 
