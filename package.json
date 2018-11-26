@@ -1,6 +1,6 @@
 {
   "name": "prettier-setup",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "NPM CLI module to setup prettier with ESLint and TSLint.",
   "main": "index.js",
   "bin": {
