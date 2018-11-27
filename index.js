@@ -21,15 +21,15 @@ exports.setup = args => {
       //Add TypeScript and JavaScript npm scripts
       addScript({
         key: 'format',
-        value: './node_modules/.bin/prettier --write *'
+        value: './node_modules/.bin/prettier --write **/*'
       })
       addScript({
         key: 'formatjs',
-        value: './node_modules/.bin/prettier --write *.js'
+        value: './node_modules/.bin/prettier --write **/*.js'
       })
       addScript({
         key: 'formatts',
-        value: './node_modules/.bin/prettier --write *.ts'
+        value: './node_modules/.bin/prettier --write **/*.ts'
       })
       addScript({
         key: 'compile',
@@ -50,11 +50,11 @@ exports.setup = args => {
       //Add JavaScript npm scripts
       addScript({
         key: 'format',
-        value: './node_modules/.bin/prettier --write *'
+        value: './node_modules/.bin/prettier --write **/*'
       })
       addScript({
         key: 'formatjs',
-        value: './node_modules/.bin/prettier --write *.js'
+        value: './node_modules/.bin/prettier --write **/*.js'
       })
     })
 

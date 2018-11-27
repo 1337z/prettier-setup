@@ -9,7 +9,8 @@
   "preferGlobal": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "./node_modules/.bin/prettier --write *"
+    "format": "./node_modules/.bin/prettier --write *",
+    "postversion": "git push --follow-tags"
   },
   "repository": {
     "type": "git",
