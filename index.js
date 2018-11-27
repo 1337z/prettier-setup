@@ -38,7 +38,10 @@ exports.setup = args => {
     })
 
     //Copy TypeScript template files
-    copyTemplateFiles()
+    console.log('Creating template files..')
+    copyTemplateFiles(true)
+    console.log('Finished!')
+    console.log('Edit the `.prettierrc` file to change the format styling.')
   } else {
     console.log('Setup will install prettier and javascript dependencies.')
 
@@ -59,13 +62,16 @@ exports.setup = args => {
     })
 
     //Copy JavaScript template files
+    console.log('Creating template files..')
     copyTemplateFiles()
+    console.log('Finished!')
+    console.log('Edit the `.prettierrc` file to change the format styling.')
   }
 }
 
 /**
- * 
- * @param {boolean} typescript 
+ *
+ * @param {boolean} typescript
  */
 function copyTemplateFiles(typescript = false) {
   copyTemplate('.eslintrc')
@@ -74,8 +80,8 @@ function copyTemplateFiles(typescript = false) {
 }
 
 /**
- * 
- * @param {string} filename 
+ *
+ * @param {string} filename
  */
 function copyTemplate(filename) {
   const path = __dirname + '/template/' + filename
@@ -86,8 +92,8 @@ function copyTemplate(filename) {
 }
 
 /**
- * 
- * @param {string} script 
+ *
+ * @param {string} script
  */
 function addScript(script) {
   try {
