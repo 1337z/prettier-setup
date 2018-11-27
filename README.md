@@ -3,6 +3,7 @@
 > Set up [Prettier](https://prettier.io/) for your JavaScript and TypeScript projects with one command.
 
 ## Install with NPM
+
 > This will install the module globally.
 
     npm i -g prettier-setup
