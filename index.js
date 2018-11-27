@@ -1,16 +1,24 @@
+//Imports
 const exec = require('child_process').exec
 const jsonfile = require('jsonfile')
-var fs = require('fs')
+const fs = require('fs')
 
+//Setup commands
 const installJS = 'npm i -D prettier eslint eslint-plugin-prettier'
 const installTS = 'npm i -D prettier eslint eslint-plugin-prettier tslint tslint-plugin-prettier'
 
+//Setup function as export
 exports.setup = args => {
+  //Check if -ts or --typescript is set
   if (args[0] == '--typescript' || args[0] == '-ts') {
     console.log('Setup will install prettier, typescript and javascript dependencies.')
 
+    //Execute TypeScript command
     exec(installTS, err => {
+      //Check for errors
       if (err) throw err
+
+      //Add TypeScript and JavaScript npm scripts
       addScript({
         key: 'format',
         value: './node_modules/.bin/prettier --write *'
@@ -29,11 +37,17 @@ exports.setup = args => {
       })
     })
 
+    //Copy TypeScript template files
     copyTemplateFiles()
   } else {
     console.log('Setup will install prettier and javascript dependencies.')
+
+    //Execute JavaScript command
     exec(installJS, err => {
+      //Check for errors
       if (err) throw err
+
+      //Add JavaScript npm scripts
       addScript({
         key: 'format',
         value: './node_modules/.bin/prettier --write *'
@@ -44,16 +58,25 @@ exports.setup = args => {
       })
     })
 
+    //Copy JavaScript template files
     copyTemplateFiles()
   }
 }
 
+/**
+ * 
+ * @param {boolean} typescript 
+ */
 function copyTemplateFiles(typescript = false) {
   copyTemplate('.eslintrc')
   copyTemplate('.prettierrc')
   if (typescript) copyTemplate('tslint.json')
 }
 
+/**
+ * 
+ * @param {string} filename 
+ */
 function copyTemplate(filename) {
   const path = __dirname + '/template/' + filename
 
@@ -62,17 +85,26 @@ function copyTemplate(filename) {
   })
 }
 
+/**
+ * 
+ * @param {string} script 
+ */
 function addScript(script) {
   try {
+    //package.json file
     let packageJSON = jsonfile.readFileSync('package.json')
 
+    //Error checks
     if (!packageJSON.scripts) packageJSON.scripts = {}
     if (!script.force && packageJSON.scripts[script.key]) {
       console.log('That script already exists!')
       console.log('Skipping..')
     }
 
+    //Add scripts
     packageJSON.scripts[script.key] = script.value
+
+    //Rewrite file
     jsonfile.writeFileSync('package.json', packageJSON, {
       spaces: 2
     })
