@@ -76,6 +76,8 @@ exports.setup = args => {
 function copyTemplateFiles(typescript = false) {
   copyTemplate('.eslintrc')
   copyTemplate('.prettierrc')
+
+  //If `typescript` is true it will also copy the tslint.json file
   if (typescript) copyTemplate('tslint.json')
 }
 
