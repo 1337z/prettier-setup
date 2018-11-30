@@ -1,4 +1,5 @@
 # Prettier Setup
+
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d11a308db752d4b202bf/maintainability)](https://codeclimate.com/github/MarvinJWendt/prettier-setup/maintainability)
 
@@ -43,7 +44,7 @@ _The setup will now install Prettier with ESLint and TSLint support._
 The setup will automatically create NPM scripts for you.  
 You can now use:
 
-`npm run format` This will format every supported file.  
-`npm run formatjs` This will only format **\*.js** files.  
-`npm run formatts` This will only format **\*.ts** files.  
-`npm run compile` This will run the TypeScriptCompiler _(tsc)_ and format the generated \*.js files afterwards.
+- `npm run format` This will format every supported file.
+- `npm run formatjs` This will only format **\*.js** files.
+- `npm run formatts` This will only format **\*.ts** files.
+- `npm run compile` This will run the TypeScriptCompiler _(tsc)_ and format the generated \*.js files afterwards.
