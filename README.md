@@ -1,4 +1,6 @@
-# prettier-setup
+# Prettier Setup
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d11a308db752d4b202bf/maintainability)](https://codeclimate.com/github/MarvinJWendt/prettier-setup/maintainability)
 
 > Set up [Prettier](https://prettier.io/) for your JavaScript and TypeScript projects with one command.
 
