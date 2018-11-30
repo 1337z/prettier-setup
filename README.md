@@ -8,7 +8,7 @@
 
     npm i -g prettier-setup
 
-That´s it!
+_That´s it!_
 
 ## Usage (JavaScript)
 
