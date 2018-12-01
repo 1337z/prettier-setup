@@ -9,7 +9,9 @@
 
 > This will install the module globally.
 
-    npm i -g prettier-setup
+```console
+npm i -g prettier-setup
+```
 
 _That´s it!_
 
@@ -17,7 +19,9 @@ _That´s it!_
 
 Open a terminal in the root directory of your project. Type:
 
-    prettier-setup
+```console
+prettier-setup
+```
 
 .. and press return.  
 _The setup will now install Prettier with ESLint support._
@@ -32,11 +36,15 @@ You can now use:
 
 Open a terminal in the root directory of your project. Type:
 
-    prettier-setup -ts
+```console
+prettier-setup -ts
+```
 
 or
 
-    prettier-setup --typescript
+```console
+prettier-setup --typescript
+```
 
 .. and press return.  
 _The setup will now install Prettier with ESLint and TSLint support._
