@@ -7,7 +7,7 @@
 
 ## Install with NPM
 
-> This will install the module globally.
+> This will install the NPM module globally.
 
 ```console
 npm i -g prettier-setup
