@@ -2,71 +2,116 @@
 const exec = require('child_process').exec
 const jsonfile = require('jsonfile')
 const fs = require('fs')
+const inquirer = require('inquirer')
 
 //Setup commands
 const installJS = 'npm i -D prettier eslint eslint-plugin-prettier'
 const installTS = 'npm i -D prettier eslint eslint-plugin-prettier tslint tslint-plugin-prettier'
 
+//JavaScript or TypeScript
+let type
+
 //Setup function as export
 exports.setup = args => {
-  //Check if -ts or --typescript is set
-  if (args[0] == '--typescript' || args[0] == '-ts') {
-    console.log('Setup will install prettier, typescript and javascript dependencies.')
-
-    //Execute TypeScript command
-    exec(installTS, err => {
-      //Check for errors
-      if (err) throw err
-
-      //Add TypeScript and JavaScript npm scripts
-      addScript({
-        key: 'format',
-        value: './node_modules/.bin/prettier --write **/*'
-      })
-      addScript({
-        key: 'formatjs',
-        value: './node_modules/.bin/prettier --write **/*.js'
-      })
-      addScript({
-        key: 'formatts',
-        value: './node_modules/.bin/prettier --write **/*.ts'
-      })
-      addScript({
-        key: 'compile',
-        value: 'tsc && npm run formatjs'
-      })
-    })
-
-    //Copy TypeScript template files
-    console.log('Creating template files..')
-    copyTemplateFiles(true)
-    console.log('Finished!')
-    console.log('Edit the `.prettierrc` file to change the format styling.')
+  //Check if args exists
+  if (args[0] == undefined || args[0] == null || args[0] == '') {
+    //Show terminal questions
+    showSurvey()
   } else {
-    console.log('Setup will install prettier and javascript dependencies.')
-
-    //Execute JavaScript command
-    exec(installJS, err => {
-      //Check for errors
-      if (err) throw err
-
-      //Add JavaScript npm scripts
-      addScript({
-        key: 'format',
-        value: './node_modules/.bin/prettier --write **/*'
-      })
-      addScript({
-        key: 'formatjs',
-        value: './node_modules/.bin/prettier --write **/*.js'
-      })
-    })
-
-    //Copy JavaScript template files
-    console.log('Creating template files..')
-    copyTemplateFiles()
-    console.log('Finished!')
-    console.log('Edit the `.prettierrc` file to change the format styling.')
+    //Use args
+    if (args[0] == '--typescript' || args[0] == '-ts') {
+      //Execute TypeScript command
+      installTypeScript()
+    } else if (args[0] == '--javascript' || args[0] == '-js') {
+      //Execute JavaScript command
+      installJavaScript()
+    } else {
+      console.log('Only [-js | --javascript | -ts | --typescript] are valid arguments!')
+      showSurvey()
+    }
   }
+}
+
+function showSurvey() {
+  inquirer
+    .prompt({
+      type: 'list',
+      name: 'type',
+      message: 'Please select which language you are using.',
+      choices: ['JavaScript', 'TypeScript']
+    })
+    .then(answers => {
+      if (answers.type == 'JavaScript') {
+        installJavaScript()
+      } else if (answers.type == 'TypeScript') {
+        installTypeScript()
+      } else {
+        console.log('Error!')
+      }
+    })
+    .catch(err => {
+      if (err) throw err
+    })
+}
+
+function installJavaScript() {
+  console.log('Setup will install prettier and javascript dependencies.')
+
+  //Execute JavaScript command
+  exec(installJS, err => {
+    //Check for errors
+    if (err) throw err
+
+    //Add JavaScript npm scripts
+    addScript({
+      key: 'format',
+      value: './node_modules/.bin/prettier --write **/*'
+    })
+    addScript({
+      key: 'formatjs',
+      value: './node_modules/.bin/prettier --write **/*.js'
+    })
+  })
+
+  //Copy JavaScript template files
+  console.log('Creating template files..')
+  copyTemplateFiles()
+  console.log('Finished!')
+  console.log('Edit the `.prettierrc` file to change the format styling.')
+}
+
+function installTypeScript() {
+  console.log('Setup will install prettier, typescript and javascript dependencies.')
+
+  //Execute TypeScript command
+  exec(installTS, err => {
+    //Check for errors
+    if (err) throw err
+
+    //Add TypeScript and JavaScript npm scripts
+    addScript({
+      key: 'format',
+      value: './node_modules/.bin/prettier --write **/*'
+    })
+    addScript({
+      key: 'formatjs',
+      value: './node_modules/.bin/prettier --write **/*.js'
+    })
+    addScript({
+      key: 'formatts',
+      value: './node_modules/.bin/prettier --write **/*.ts'
+    })
+    addScript({
+      key: 'compile',
+      value: 'tsc && npm run formatjs'
+    })
+  })
+
+  //Copy TypeScript template files
+  console.log('Creating template files..')
+  copyTemplateFiles(true)
+  console.log('Finished!')
+  console.log('Edit the `.prettierrc` file to change the format styling.')
 }
 
 /**
