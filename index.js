@@ -26,6 +26,7 @@ exports.setup = args => {
       //Execute JavaScript command
       installJavaScript()
     } else {
+      //Args not matching
       console.log('Only [-js | --javascript | -ts | --typescript] are valid arguments!')
       showSurvey()
     }
