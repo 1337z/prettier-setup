@@ -1,32 +1,32 @@
-//Imports
+// Imports
 const exec = require('child_process').exec
 const jsonfile = require('jsonfile')
 const fs = require('fs')
 const inquirer = require('inquirer')
 
-//Setup commands
+// Setup commands
 const installJS = 'npm i -D prettier eslint eslint-plugin-prettier'
 const installTS = 'npm i -D prettier eslint eslint-plugin-prettier tslint tslint-plugin-prettier'
 
-//JavaScript or TypeScript
+// JavaScript or TypeScript
 let type
 
-//Setup function as export
+// Setup function as export
 exports.setup = args => {
-  //Check if args exists
+  // Check if args exists
   if (args[0] == undefined || args[0] == null || args[0] == '') {
-    //Show terminal questions
+    // Show terminal questions
     showSurvey()
   } else {
-    //Use args
+    // Use args
     if (args[0] == '--typescript' || args[0] == '-ts') {
-      //Execute TypeScript command
+      // Execute TypeScript command
       installTypeScript()
     } else if (args[0] == '--javascript' || args[0] == '-js') {
-      //Execute JavaScript command
+      // Execute JavaScript command
       installJavaScript()
     } else {
-      //Args not matching
+      // Args not matching
       console.log('Only [-js | --javascript | -ts | --typescript] are valid arguments!')
       showSurvey()
     }
@@ -58,12 +58,12 @@ function showSurvey() {
 function installJavaScript() {
   console.log('Setup will install prettier and javascript dependencies.')
 
-  //Execute JavaScript command
+  // Execute JavaScript command
   exec(installJS, err => {
     //Check for errors
     if (err) throw err
 
-    //Add JavaScript npm scripts
+    // Add JavaScript npm scripts
     addScript({
       key: 'format',
       value: './node_modules/.bin/prettier --write **/*'
@@ -74,7 +74,7 @@ function installJavaScript() {
     })
   })
 
-  //Copy JavaScript template files
+  // Copy JavaScript template files
   console.log('Creating template files..')
   copyTemplateFiles()
   console.log('Finished!')
@@ -84,12 +84,12 @@ function installJavaScript() {
 function installTypeScript() {
   console.log('Setup will install prettier, typescript and javascript dependencies.')
 
-  //Execute TypeScript command
+  // Execute TypeScript command
   exec(installTS, err => {
     //Check for errors
     if (err) throw err
 
-    //Add TypeScript and JavaScript npm scripts
+    // Add TypeScript and JavaScript npm scripts
     addScript({
       key: 'format',
       value: './node_modules/.bin/prettier --write **/*'
@@ -108,7 +108,7 @@ function installTypeScript() {
     })
   })
 
-  //Copy TypeScript template files
+  // Copy TypeScript template files
   console.log('Creating template files..')
   copyTemplateFiles(true)
   console.log('Finished!')
@@ -123,7 +123,7 @@ function copyTemplateFiles(typescript = false) {
   copyTemplate('.eslintrc')
   copyTemplate('.prettierrc')
 
-  //If `typescript` is true it will also copy the tslint.json file
+  // If `typescript` is true it will also copy the tslint.json file
   if (typescript) copyTemplate('tslint.json')
 }
 
@@ -145,20 +145,20 @@ function copyTemplate(filename) {
  */
 function addScript(script) {
   try {
-    //package.json file
+    // package.json file
     let packageJSON = jsonfile.readFileSync('package.json')
 
-    //Error checks
+    // Error checks
     if (!packageJSON.scripts) packageJSON.scripts = {}
     if (!script.force && packageJSON.scripts[script.key]) {
       console.log('That script already exists!')
       console.log('Skipping..')
     }
 
-    //Add scripts
+    // Add scripts
     packageJSON.scripts[script.key] = script.value
 
-    //Rewrite file
+    // Rewrite file
     jsonfile.writeFileSync('package.json', packageJSON, {
       spaces: 2
     })
