@@ -15,12 +15,43 @@ npm i -g prettier-setup
 
 _That´s it!_
 
-## Usage (JavaScript)
+## Usage
 
 Open a terminal in the root directory of your project. Type:
 
 ```console
 prettier-setup
+```
+
+.. and press return.
+
+Choose a code language that you want to use and hit return (use arrow keys to select).
+
+_The setup will now install Prettier with ESLint support._
+
+The setup will automatically create NPM scripts for you.  
+You can now use:
+
+- `npm run format` This will format every supported file.
+- `npm run formatjs` This will only format \*.js files.
+
+If you selected TypeScript you can also use:
+
+- `npm run formatts` This will only format **\*.ts** files.
+- `npm run compile` This will run the TypeScriptCompiler _(tsc)_ and format the
+
+## Usage (JavaScript)
+
+Open a terminal in the root directory of your project. Type:
+
+```console
+prettier-setup -js
+```
+
+or
+
+```console
+prettier-setup --javascript
 ```
 
 .. and press return.  
@@ -29,8 +60,8 @@ _The setup will now install Prettier with ESLint support._
 The setup will automatically create NPM scripts for you.  
 You can now use:
 
-`npm run format` This will format every supported file.  
-`npm run formatjs` This will only format \*.js files.
+- `npm run format` This will format every supported file.
+- `npm run formatjs` This will only format \*.js files.
 
 ## Usage (JavaScript & TypeScript)
 
