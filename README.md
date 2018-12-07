@@ -38,7 +38,7 @@ You can now use:
 If you selected TypeScript you can also use:
 
 - `npm run formatts` This will only format **\*.ts** files.
-- `npm run compile` This will run the TypeScriptCompiler _(tsc)_ and format the
+- `npm run compile` This will run the TypeScriptCompiler _(`tsc`)_ and format the
 
 ## Usage (JavaScript)
 
@@ -86,4 +86,4 @@ You can now use:
 - `npm run format` This will format every supported file.
 - `npm run formatjs` This will only format **\*.js** files.
 - `npm run formatts` This will only format **\*.ts** files.
-- `npm run compile` This will run the TypeScriptCompiler _(tsc)_ and format the generated \*.js files afterwards.
+- `npm run compile` This will run the TypeScriptCompiler _(`tsc`)_ and format the generated \*.js files afterwards.
