@@ -8,31 +8,44 @@ const inquirer = require('inquirer')
 const installJS = 'npm i -D prettier eslint eslint-plugin-prettier'
 const installTS = 'npm i -D prettier eslint eslint-plugin-prettier tslint tslint-plugin-prettier'
 
-// JavaScript or TypeScript
-let type
-
 // Setup function as export
 exports.setup = args => {
+
   // Check if args exists
   if (args[0] == undefined || args[0] == null || args[0] == '') {
-    // Show terminal questions
+
+    // Show interactive questions
     showSurvey()
   } else {
+
     // Use args
     if (args[0] == '--typescript' || args[0] == '-ts') {
+
       // Execute TypeScript command
       installTypeScript()
+
+      // If args are not setting the language to TypeScript
+      // check if it's set to JavaScript
     } else if (args[0] == '--javascript' || args[0] == '-js') {
+
       // Execute JavaScript command
       installJavaScript()
-    } else {
+
       // Args not matching
+    } else {
+
+      // Show notice for acceptable args
       console.log('Only [-js | --javascript | -ts | --typescript] are valid arguments!')
+
+      // Show interactive questions
       showSurvey()
     }
   }
 }
 
+/**
+ * @description Show interactive questions
+ */
 function showSurvey() {
   inquirer
     .prompt({
@@ -60,7 +73,8 @@ function installJavaScript() {
 
   // Execute JavaScript command
   exec(installJS, err => {
-    //Check for errors
+
+    // Check for errors
     if (err) throw err
 
     // Add JavaScript npm scripts
@@ -86,7 +100,8 @@ function installTypeScript() {
 
   // Execute TypeScript command
   exec(installTS, err => {
-    //Check for errors
+
+    // Check for errors
     if (err) throw err
 
     // Add TypeScript and JavaScript npm scripts
