@@ -1,11 +1,11 @@
-# Prettier Setup
+# :nail_care: Prettier Setup
 
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d11a308db752d4b202bf/maintainability)](https://codeclimate.com/github/MarvinJWendt/prettier-setup/maintainability)
 
 > Set up [Prettier](https://prettier.io/) for your JavaScript and TypeScript projects with one command.
 
-## Install with NPM
+## :package: Install with NPM
 
 > This will install the NPM module globally.
 
@@ -15,7 +15,7 @@ npm i -g prettier-setup
 
 _That´s it!_
 
-## Usage
+## :clipboard: Usage
 
 Open a terminal in the root directory of your project. Type:
 
@@ -40,7 +40,7 @@ If you selected TypeScript you can also use:
 - `npm run formatts` This will only format **\*.ts** files.
 - `npm run compile` This will run the TypeScriptCompiler _(`tsc`)_ and format the
 
-## Usage (JavaScript)
+## :clipboard: Usage (JavaScript)
 
 Open a terminal in the root directory of your project. Type:
 
@@ -63,7 +63,7 @@ You can now use:
 - `npm run format` This will format every supported file.
 - `npm run formatjs` This will only format \*.js files.
 
-## Usage (JavaScript & TypeScript)
+## :clipboard: Usage (JavaScript & TypeScript)
 
 Open a terminal in the root directory of your project. Type:
 
