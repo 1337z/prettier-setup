@@ -28,7 +28,8 @@
   },
   "homepage": "https://github.com/MarvinJWendt/prettier-setup#readme",
   "devDependencies": {
-    "prettier": "^1.15.2"
+    "prettier": "^1.15.2",
+    "typescript": "^3.2.2"
   },
   "dependencies": {
     "inquirer": "^6.2.1",

@@ -6,7 +6,7 @@ const inquirer = require('inquirer')
 
 // Setup commands
 const installJS = 'npm i -D prettier eslint eslint-plugin-prettier'
-const installTS = 'npm i -D prettier eslint eslint-plugin-prettier tslint tslint-plugin-prettier'
+const installTS = 'npm i -D prettier eslint eslint-plugin-prettier tslint tslint-plugin-prettier typescript'
 
 // Setup function as export
 exports.setup = args => {
