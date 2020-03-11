@@ -31,7 +31,7 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {
-    "inquirer": "^6.2.1",
+    "inquirer": "^7.1.0",
     "jsonfile": "^5.0.0"
   }
 }
